@@ -1,0 +1,90 @@
+﻿[Files]
+File0=C:\Users\Talle\IdeaProjects\PI\src\de\hems\tallerik\pi\firma\Firma.java
+File1=C:\Users\Talle\IdeaProjects\PI\src\de\hems\tallerik\pi\firma\FirmaUI.java
+File2=C:\Users\Talle\IdeaProjects\PI\src\de\hems\tallerik\pi\firma\Kunde.java
+File3=C:\Users\Talle\IdeaProjects\PI\src\de\hems\tallerik\pi\firma\Produkt.java
+File4=C:\Users\Talle\IdeaProjects\PI\src\de\hems\tallerik\pi\firma\Vertreter.java
+File5=C:\Users\Talle\IdeaProjects\PI\src\de\hems\tallerik\pi\firma\Werk.java
+
+[Box:  - de.hems.tallerik.pi.firma.Firma]
+X=1569
+Y=40
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=1
+FontSize=12
+FontName=Segoe UI
+
+[Box:  - de.hems.tallerik.pi.firma.FirmaUI]
+X=1266
+Y=525
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=1
+FontSize=12
+FontName=Segoe UI
+
+[Box:  - de.hems.tallerik.pi.firma.Kunde]
+X=204
+Y=380
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=1
+FontSize=12
+FontName=Segoe UI
+
+[Box:  - de.hems.tallerik.pi.firma.Produkt]
+X=507
+Y=32
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=1
+FontSize=12
+FontName=Segoe UI
+
+[Box:  - de.hems.tallerik.pi.firma.Vertreter]
+X=796
+Y=437
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=1
+FontSize=12
+FontName=Segoe UI
+
+[Box:  - de.hems.tallerik.pi.firma.Werk]
+X=961
+Y=0
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=1
+FontSize=12
+FontName=Segoe UI
+
+[Diagram]
+comments=0
+OffsetX=0
+OffsetY=0
+Visibility=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=1
+ShowConnections=0
+Fontname=Segoe UI
+Fontsize=12
+ShowObjectDiagram=0
+
+[Connections]
+V0=de.hems.tallerik.pi.firma.Firma#de.hems.tallerik.pi.firma.Werk#Aggregation####0#0#0###0#0
+V1=de.hems.tallerik.pi.firma.Firma#de.hems.tallerik.pi.firma.Vertreter#Aggregation####0#0#0###0#0
+V2=de.hems.tallerik.pi.firma.Vertreter#de.hems.tallerik.pi.firma.Kunde#Aggregation####0#0#0###0#0
+V3=de.hems.tallerik.pi.firma.Werk#de.hems.tallerik.pi.firma.Produkt#AssociationDirected####0#0#0###0#0
+
+[Interactive]
+I0=
+
