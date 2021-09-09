@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Auto {
+  // Anfang Attribute
     private final double LUFTVERLUST = 0.000167; // Luftverlust der Reifen in bar pro Km
     private final double REIFENABRIEB = 0.002; // Reifenabnutzung von 100 pro Km
 
@@ -21,6 +22,7 @@ public class Auto {
     private String kraftstoffArt;
     private double verbrauch;
     private double empfohlenerReifenLuftdruck;
+  // Ende Attribute
 
 
     public Auto(String marke, String modell, int baujahr) {
@@ -57,6 +59,7 @@ public class Auto {
         this.verbrauch = verbrauch;
         this.empfohlenerReifenLuftdruck = empfohlenerReifenLuftdruck;
     }
+  // Anfang Methoden
 
     /**
      * Versucht das Auto, um die gegebene anzahl zu tanken
@@ -273,4 +276,5 @@ public class Auto {
     public void setEmpfohlenerReifenLuftdruck(double empfohlenerReifenLuftdruck) {
         this.empfohlenerReifenLuftdruck = empfohlenerReifenLuftdruck;
     }
+  // Ende Methoden
 }
