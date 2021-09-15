@@ -27,6 +27,8 @@ public class Reifen {
     }
 
     public void luftVerlieren(double red) {
+        if((druck -red) < 0)
+            return;
         druck = druck -red;
     }
 

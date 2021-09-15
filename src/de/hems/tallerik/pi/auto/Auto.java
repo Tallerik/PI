@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Auto {
-    // Klassenatribut
+    // Klassenattribut
     private static int iterator = 1;
 
   // Anfang Attribute
@@ -105,7 +105,7 @@ public class Auto {
                 return false;
             }
         }
-        return false;
+        return true;
     }
 
     public void addFeature(String feature) {
@@ -136,7 +136,7 @@ public class Auto {
         }
         return null;
     }
-
+//TODO: REIFEN KAPUT = NICHT FAHREN
     public boolean fahren(int km) {
         double benoetigterKraftstoff = (km / 100.0) * this.verbrauch;
         if (benoetigterKraftstoff > this.tankinhalt) {
