@@ -9,19 +9,24 @@ public class Main {
         Auto bmw = new Auto("BMW", "E36", 2003);
 
 
-        List<String> featureList = new ArrayList<String>();
-
-        featureList.add("ABS");
-        featureList.add("ASR");
-        featureList.add("Navigationssystem");
-        featureList.add("Tempomat");
-
 
 
         Auto a1 = new Auto("Opel", "Cascada", 2016, 3, 167, 180,
                 normaleReifen(), 5, genFeaturelist("ABS", "ASR", "Navigationssystem", "Tempomat"), 80,
-                50, "Benzin", 7, 2.4);
+                50, "Benzin", 7, 2.4, 0.0);
         System.out.println(a1);
+        a1.fahren(200);
+    a1.getRaeder().forEach(element -> {
+        System.out.print(element.getDruck());
+        System.out.println(" Bar");
+    });
+
+    System.out.print(a1.getTankinhalt());
+    System.out.println("L Tankinhalt");
+
+    System.out.println(a1.volltanken());
+
+
     }
 
     private static List<Reifen> normaleReifen() {

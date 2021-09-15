@@ -4,10 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Auto {
+    // Klassenatribut
+    private static int iterator = 1;
+
   // Anfang Attribute
     private final double LUFTVERLUST = 0.000167; // Luftverlust der Reifen in bar pro Km
     private final double REIFENABRIEB = 0.002; // Reifenabnutzung von 100 pro Km
 
+    private int fin;
     private String marke;
     private String modell;
     private int baujahr;
@@ -22,10 +26,13 @@ public class Auto {
     private String kraftstoffArt;
     private double verbrauch;
     private double empfohlenerReifenLuftdruck;
+    private double kilometerstand;
   // Ende Attribute
 
 
     public Auto(String marke, String modell, int baujahr) {
+        fin = iterator;
+        iterator++;
         this.marke = marke;
         this.modell = modell;
         this.baujahr = baujahr;
@@ -39,11 +46,14 @@ public class Auto {
         this.drehmoment = 0.0f;
         this.sitzPlaetze = 0;
         this.empfohlenerReifenLuftdruck = 0;
+        this.kilometerstand = 0.0;
     }
 
     public Auto(String marke, String modell, int baujahr, int tueren, float leistung, float drehmoment, List<Reifen> raeder,
                 int sitzPlaetze, List<String> features, double tankinhalt, double tankvolumen, String kraftstoffArt,
-                double verbrauch, double empfohlenerReifenLuftdruck) {
+                double verbrauch, double empfohlenerReifenLuftdruck, double kilometerstand) {
+        fin = iterator;
+        iterator++;
         this.marke = marke;
         this.modell = modell;
         this.baujahr = baujahr;
@@ -58,6 +68,7 @@ public class Auto {
         this.kraftstoffArt = kraftstoffArt;
         this.verbrauch = verbrauch;
         this.empfohlenerReifenLuftdruck = empfohlenerReifenLuftdruck;
+        this.kilometerstand = kilometerstand;
     }
   // Anfang Methoden
 
@@ -127,7 +138,7 @@ public class Auto {
     }
 
     public boolean fahren(int km) {
-        double benoetigterKraftstoff = (km / 100) * this.verbrauch;
+        double benoetigterKraftstoff = (km / 100.0) * this.verbrauch;
         if (benoetigterKraftstoff > this.tankinhalt) {
             return false;
         }
@@ -137,8 +148,16 @@ public class Auto {
             double extraAbtrieb = this.empfohlenerReifenLuftdruck - reifen.getDruck();
             reifen.abnutzen(REIFENABRIEB * extraAbtrieb *  km); // Reifen wird mehr abgenutzt wenn Luftdruck zu wenig.
         });
+        kilometerstand += km;
         return true;
 
+    }
+
+    public double kalkuliereReichweite() {
+        // km / 100 * verbrauch = Reichweite | * 100
+        // verbrauch * km = Reichweite * 100 |
+        //
+        return 2.0;
     }
 
     @Override
@@ -148,6 +167,7 @@ public class Auto {
         s += "Leistung: " + leistung + "PS\n";
         s += "Drehmoment: " + drehmoment + "Nm\n";
         s += "Sitz Plaetze: " + sitzPlaetze + "\n";
+        s += "Kilometerstand: " + kilometerstand + "\n";
         s += "Tank Volumen: " + tankvolumen + "L\n";
         s += "Tueren: " + tueren + "\n";
         s += "Kraftstoff art: " + kraftstoffArt + "\n";
@@ -159,6 +179,10 @@ public class Auto {
             s += " - " + f + "\n";
         }
         return s;
+    }
+
+    public int getFin() {
+        return fin;
     }
 
     public double getLUFTVERLUST() {
