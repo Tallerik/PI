@@ -1,0 +1,73 @@
+{
+  "game": {
+    "name": "Kostümgenerator",
+    "icon": "src/main/resources/icon.png"
+  },
+  "questions": [
+    {
+      "text": "Frage 1",
+      "values": [
+        {
+          "name": "Antwort 1",
+          "points": 10
+        },
+        {
+          "name": "Antwort 2",
+          "points": 20
+        },
+        {
+          "name": "Antwort 3",
+          "points": 30
+        },
+        {
+          "name": "Antwort 4",
+          "points": 40
+        }
+      ]
+    },
+
+    {
+      "text": "Frage 2",
+      "values": [
+        {
+          "name": "Antwort 21",
+          "points": 10
+        },
+        {
+          "name": "Antwort 22",
+          "points": 20
+        },
+        {
+          "name": "Antwort 23",
+          "points": 30
+        },
+        {
+          "name": "Antwort 24",
+          "points": 40
+        }
+      ]
+
+    }
+  ],
+
+  "answers": [
+    {
+      "min": 0,
+      "max": 30,
+      "text": "Lul",
+      "img": ""
+    },
+    {
+      "min": 31,
+      "max": 60,
+      "text": "Lel",
+      "img": ""
+    },
+    {
+      "min": 61,
+      "max": 90,
+      "text": "Lal",
+      "img": ""
+    }
+  ]
+}
