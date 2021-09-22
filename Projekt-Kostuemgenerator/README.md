@@ -1,7 +1,7 @@
 # Kostümgenerator
 School project from 2020 @ HEMS/PI
 
-_Needs Java Language-Lebel 11 as mentioned in pom.xml_
+_Needs Java Language-Level 11 as mentioned in pom.xml_
 ____
 ### Special files
 `data.json` - DataSet with Questions and the final results  
