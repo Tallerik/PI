@@ -1,5 +1,6 @@
 package de.hems.tallerik.pi.bucher;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RegalFach {
@@ -17,13 +18,17 @@ public class RegalFach {
         this.hohe = hohe;
         this.breite = breite;
         this.tiefe = tiefe;
+        bucher = new ArrayList<>();
     }
 
     public boolean canAddBook(Buch buch) {
         if(buch.getDepth() > tiefe || buch.getHeight() > hohe) {
             return false;
         }
-        double existsbooks = bucher.stream().mapToDouble(Buch::getWidth).sum();
+        double existsbooks = 0.0;
+        for (Buch b : bucher) {
+            existsbooks += b.getWidth();
+        }
 
 
         if((breite - existsbooks) >= buch.getWidth()) {

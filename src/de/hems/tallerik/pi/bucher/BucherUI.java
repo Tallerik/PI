@@ -31,7 +31,7 @@ public class BucherUI {
         regal.getAllBooksSortByCat().forEach((s, buches) -> {
             String bu = "";
             for (Buch b: buches) {
-                bu = bu + b.getTitel() + (b.isAusgeliehen() ? " (Ausgeliehen) " : "") +", ";
+                bu = bu + b.getTitel() + (b.isAusgeliehen() ? " (Ausgeliehen)" : "") +", ";
             }
             System.out.println(s + "  -  " + bu);
         });

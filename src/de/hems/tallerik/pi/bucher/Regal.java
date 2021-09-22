@@ -28,8 +28,8 @@ public class Regal {
         regalfacher[1][2] = new RegalFach("INF2",70, 40, 40);
 
         regalfacher[2][0] = new RegalFach("MA",40, 60, 40);
-        regalfacher[3][1] = new RegalFach("ET3",80, 60, 40);
-        regalfacher[3][2] = null;
+        regalfacher[2][1] = new RegalFach("ET3",80, 60, 40);
+        regalfacher[2][2] = null;
 
     }
 
@@ -53,6 +53,8 @@ public class Regal {
         double price = 0;
         for (int i = 0; i < regalfacher.length; i++) {
             for (int j = 0; j < regalfacher[i].length; j++) {
+                if(regalfacher[i][j] == null)
+                    continue;
                 for (Buch b : regalfacher[i][j].getBucher()) {
                     price += b.getPreis();
                 }
@@ -65,6 +67,8 @@ public class Regal {
     public RegalFach getRegalFachByName(String name) {
         for (int i = 0; i < regalfacher.length; i++) {
             for (int j = 0; j < regalfacher[i].length; j++) {
+                if(regalfacher[i][j] == null)
+                    continue;
                 if(regalfacher[i][j].getName().equals(name)) {
                     return regalfacher[i][j];
                 }
@@ -78,6 +82,8 @@ public class Regal {
         List<Buch> bucher = new ArrayList<>();
         for (int i = 0; i < regalfacher.length; i++) {
             for (int j = 0; j < regalfacher[i].length; j++) {
+                if(regalfacher[i][j] == null)
+                    continue;
                 bucher.addAll(regalfacher[i][j].getBucher());
             }
         }
@@ -88,6 +94,8 @@ public class Regal {
         HashMap<String, List<Buch>> map = new HashMap<>();
         for (int i = 0; i < regalfacher.length; i++) {
             for (int j = 0; j < regalfacher[i].length; j++) {
+                if(regalfacher[i][j] == null)
+                    continue;
                 map.put(regalfacher[i][j].getName(), regalfacher[i][j].getBucher());
             }
         }
