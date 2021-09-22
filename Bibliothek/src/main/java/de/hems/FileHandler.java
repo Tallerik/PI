@@ -1,4 +1,4 @@
-package de.hems.tallerik.pi.bibliothek;
+package de.hems;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -34,7 +34,7 @@ public class FileHandler {
     public boolean fileExists() {
         return config.exists() && config.isFile();
     }
-
+    
     /*
         Erstellt die Datei und füllt sie mit Standardwerten
 
@@ -69,7 +69,7 @@ public class FileHandler {
                 }
                 list.add(new Nutzerkonto(arr.getJSONObject(i)));
             }
-            return list;
+            return list;    
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -102,7 +102,7 @@ public class FileHandler {
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }        
     }
 
 }

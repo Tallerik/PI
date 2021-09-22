@@ -1,4 +1,4 @@
-package de.hems.tallerik.pi.bibliothek;
+package de.hems;
 
 import org.json.JSONObject;
 
@@ -11,12 +11,13 @@ public class Nutzerkonto {
     private String vorname;
     private String nachname;
     private int bucherEntliehen;
-    private int ueberzogeneBucher;
+    private int ueberzogeneBucher;    
     private double strafgebuehren;
     private boolean geloscht = false;
 
     /*
         Konstruktor um mit den Daten aus einem JSON-Objekt die Klasse zu initialisieren.
+
         @param obj:JSONObject JSONObjekt mit den Daten eines vorher gespeicherten Nutzerkontos.
     */
     Nutzerkonto(JSONObject obj){
@@ -34,6 +35,7 @@ public class Nutzerkonto {
 
     /*
         Konstruktor um ein Nutzerkonto mit Standardwerten und angegebenen Vor-/Nachnamen
+
         @param vornameParam:String Vorname des Nutzerkonto-Besitzer
         @param nachnameParam:String Nachname des Nutzerkonto-Besitzer
     */
@@ -48,6 +50,7 @@ public class Nutzerkonto {
 
     /*
         Aktualisiert den Wert strafgeueren, bestehend aus ueberzogeneBucher
+
         @return void
     */
     void strafgebuehrenBerechnen() {
@@ -57,6 +60,7 @@ public class Nutzerkonto {
     /*
         Methode um ein Nutzerkonto zu deaktivieren.
         Setzt alle Werte zu 0 und geloscht zu true
+
         @return void
     */
     void loeschenNutzerkonto(){
@@ -70,10 +74,11 @@ public class Nutzerkonto {
         geloscht = true;
         System.out.println("Nutzerkonto von " + tname + " wurde erfolgreich gelöscht.");
     }
-
+    
     /*
         Methode um ein Buch auszuleihen.
         Testet ob Strafgebüren zu hoch sind, um ein weiteres Buch auszuleihen.
+
         @return boolean true wenn funktion erfolgreich ausgeführt werden konnte. Ansonsten false
     */
     boolean buchAusleihen(){
@@ -87,6 +92,7 @@ public class Nutzerkonto {
     /*
         Methode um ein Buch zurückzugeben.
         Prüft ob nicht schon alle Bücher zurückgegeben sind
+
         @return void
     */
     void buchZurueckgeben(){
@@ -98,8 +104,10 @@ public class Nutzerkonto {
     /*
         Methode um Strafgebüren zu zahlen.
         Testet ob die Geldmenge passt.
+
         @param geld:double Geldmenge
-        @return boolean Gibt true bei Erfolg und false falls Geld nicht passt zurück
+
+        @return boolean Gibt true bei Erfolg und false falls Geld nicht passt zurück 
     */
     boolean strafgebuehrenBezahlen(double geld){
         if (strafgebuehren - geld != 0){ return false; }
@@ -112,6 +120,7 @@ public class Nutzerkonto {
 
     /*
         Gibt das Nutzerkonto als JSON-Objekt zurück.
+
         @return JSONObjekt mit allen Daten des Nutzerkontos
     */
     JSONObject getAsJSON() {
@@ -126,7 +135,7 @@ public class Nutzerkonto {
         return obj;
     }
 
-    /*
+    /* 
         Getter
     */
     int getNutzerID(){

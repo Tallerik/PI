@@ -1,4 +1,4 @@
-package de.hems.tallerik.pi.bibliothek;
+package de.hems;
 
 import java.util.Scanner;
 
@@ -62,7 +62,7 @@ public final class App {
             }
         }
         sc.close();
-        p("System beendet.");
+        p("System beendet.");     
         handler.saveData(nutzerKonten);
     }
 
@@ -81,7 +81,7 @@ public final class App {
         }
         return false;
     }
-
+    
     /*
         Funktion um einen Nutzer zu erstellen.
         Überprüft, ob der Nutzer bereits existiert, sowie ob der Parameter args erwartete Werte enthält.
@@ -116,9 +116,9 @@ public final class App {
             Nutzerkonto target = null;
             for(Nutzerkonto k : nutzerKonten) {
                 if(
-                        k.getVorname().equals(args.get(0)) &&
-                                k.getNachname().equals(args.get(1)) &&
-                                !k.getGeloscht()
+                    k.getVorname().equals(args.get(0)) &&
+                    k.getNachname().equals(args.get(1)) &&
+                    !k.getGeloscht()
                 ) {
                     target = k;
                     break;
@@ -136,8 +136,8 @@ public final class App {
         } else {
             p("Anmeldung fehlgeschlagen");
         }
-
-
+            
+            
     }
 
     /*
@@ -215,7 +215,7 @@ public final class App {
                     } else {
                         p("Sie haben keine Bücher entliehen");
                     }
-                    break;
+                    break;  
                 /*
                     zahlen: Strafzahlungen leisten
                 */
@@ -251,12 +251,12 @@ public final class App {
     private static void p() {
         System.out.println("");
     }
-
+    
     /*
         Gibt die Hilfe aus.
 
         @param loggedIn:boolean Ob der Nutzer eingeloggt ist
-
+        
         @return void
     */
     private static void pHelp(boolean loggedIn) {
@@ -275,8 +275,8 @@ public final class App {
             p(" login <Vorname> <Nachname> - Einloggen");
             p(" shutdown - System herunterfahren");
             p();
-        }
-
+        }   
+        
     }
 
 
