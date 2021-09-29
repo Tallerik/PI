@@ -5,7 +5,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Becher {
 
-    int[] wurfel;
+    private int[] wurfel;
 
 
     public Becher() {
@@ -41,7 +41,7 @@ public class Becher {
     }
 
     private int random() {
-        return ThreadLocalRandom.current().nextInt(0, 6 + 1); // 0 is the start value (which is inclusive) and 6 is the end (not inclusive) but + 1 make it inclusive;
+        return ThreadLocalRandom.current().nextInt(1, 6 + 1); // 0 is the start value (which is inclusive) and 6 is the end (not inclusive) but + 1 make it inclusive;
     }
 
 }
