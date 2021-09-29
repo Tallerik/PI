@@ -21,17 +21,22 @@ public class Becher {
 
     public int[] wuerfeln(int[] slots) {
 
-        if(slots.length > 3) {
-            return wurfel;
-        }
-        for (int i = 0; i < slots.length; i++) {
-            if(slots[i] < 0 ||slots[i] > 5) {
+        try {
+            if(slots.length > 3) {
                 return wurfel;
             }
+            for (int i = 0; i < slots.length; i++) {
+                if(slots[i] < 0 ||slots[i] > 5) {
+                    return wurfel;
+                }
+            }
+            for (int i = 0; i < slots.length; i++) {
+                wurfel[slots[i]] = random();
+            }
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Indexfehler");
         }
-        for (int i = 0; i < slots.length; i++) {
-            wurfel[slots[i]] = random();
-        }
+
         return wurfel;
 
     }
