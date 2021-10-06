@@ -1,60 +1,135 @@
 package de.hems.kniffel;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Kniffel {
+    /**
+     * Debug-Mode
+     * Runs Game only with one Player as AI and 1 round.
+     *
+     */
+    private final boolean DEBUG = false;
+    private final int DEBUG_AI = 1;
 
+    /**
+     * Spieler des Spiels
+     */
+    private List<Spieler> spieler;
+    private Scanner sc;
 
-    Spieler sp1;
-    Spieler sp2;
-
+    /**
+     * Konstruktor des Spiels. Wird beim Programmstart ausgeführt
+     */
     public Kniffel() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Wie heist der erste Spieler?");
-        sp1 = new Spieler(sc.nextLine());
-        System.out.println("Wie heist der zweite Spieler?");
-        sp2 = new Spieler(sc.nextLine());
+        int runden;
+        spieler = new ArrayList<>();
+        sc = new Scanner(System.in);
+        if(!DEBUG) {
+            // Einlesen von custom informationen
+            addSpieler();
+
+            System.out.println("Wie viele Runden möchtest du Spielen?");
+            runden = sc.nextInt();
+        } else {
+            runden = 1;
+            spieler.add(new Spieler("BOT", DEBUG_AI));
+        }
+
+
+
+        // Spiel beginnt
 
         System.out.println("Das Spiel beginnt");
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < runden; i++) {
             runde();
             System.out.println("Runde abgeschlossen\n\n");
         }
-        System.out.println("Spiel beendet. Siege:");
-        System.out.println(sp1.getName() + ": " + sp1.getRundensiege() + " Siege");
-        System.out.println(sp2.getName() + ": " + sp2.getRundensiege() + " Siege");
 
+        // Ende
+        System.out.println("Spiel beendet. Siege:");
+        for (Spieler sp : spieler) {
+            System.out.println(sp.getName() + ": " + sp.getRundensiege() + " Siege");
+        }
         System.out.println("c u");
 
+        sc.close();
     }
 
 
+    private void addSpieler() {
+        System.out.println("Wie heist der Spieler?");
+        String name = sc.nextLine();
+        String ai;
+        do {
+            System.out.println("Soll der Spieler vom Computer gespielt werden? [j/n]");
+            ai = sc.nextLine();
+        } while (!ai.equals("j") && !ai.equals("n"));
+        boolean isAI = ai.equals("j");
+        if(isAI) {
+            int diff;
+            do {
+                System.out.println("Welche AI soll verwendet werden [0/1]");
+                diff = sc.nextInt();
+            } while (diff != 0 && diff != 1);
+
+            spieler.add(new Spieler(name, diff));
+        } else {
+            spieler.add(new Spieler(name));
+        }
+
+
+        String neu;
+        do { //TODO: BUG: MESSAGE PRINTING TWICE WHEN AI IS SELECTED
+            System.out.println("Möchtest du einen weiteren Spieler hinzufügen? [j/n]");
+            neu = sc.nextLine();
+        } while (!neu.equals("j") && !neu.equals("n"));
+
+        if(neu.equals("j")) {
+
+            addSpieler();
+        }
+    }
+
+    /**
+     * Eine Spielrunde
+     */
     private void runde() {
         System.out.println("Die Runde beginnt.");
-        for (int i = 0; i < 5; i++) {
-            clearTerm();
-            sp1.spielzug();
-            clearTerm();
-            sp2.spielzug();
+
+        // Spielzüge beider Spieler
+        for (int i = 0; i < 6; i++) {
+            for (Spieler sp : spieler) {
+                clearTerm();
+                sp.spielzug();
+            }
         }
 
         System.out.println("Runde beendet");
 
-        if(sp1.getGewinnKarte().getGesamtPunkte() > sp2.getGewinnKarte().getGesamtPunkte()) {
-            System.out.println(sp1.getName() + " hat die Runde gewonnen");
-            sp1.gewonnen();
-        } else {
-            System.out.println(sp2.getName() + " hat die Runde gewonnen");
-            sp2.gewonnen();
+        // Runde beendet, der Sieger steht fest
+        Spieler bestPlayer = null;
+        int bestpt = 0;
+        for (Spieler sp : spieler) {
+            if(sp.getGewinnKarte().getGesamtPunkte() > bestpt) {
+                bestPlayer = sp;
+                bestpt = sp.getGewinnKarte().getGesamtPunkte();
+            }
+        }
+        if(bestPlayer != null) {
+            System.out.println(bestPlayer.getName() + " hat die Runde mit "+ bestpt +" gewonnen");
+            bestPlayer.gewonnen();
         }
 
-        sp1.resetGewinnkarte();
-        sp2.resetGewinnkarte();
+        for (Spieler sp : spieler) {
+            sp.resetGewinnkarte();
+        }
 
     }
 
     private void clearTerm() {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 5; i++) {
             System.out.println();
         }
     }
