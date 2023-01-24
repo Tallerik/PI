@@ -68,4 +68,8 @@ public class Konto {
     public Buchung getNeuste() {
         return neuste;
     }
+
+    public double getKontostand() {
+        return kontostand;
+    }
 }
