@@ -3,11 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/PI.iml" filepath="$PROJECT_DIR$/.idea/PI.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Projekt-Kostuemgenerator/Projekt-Kostuemgenerator.iml" filepath="$PROJECT_DIR$/Projekt-Kostuemgenerator/Projekt-Kostuemgenerator.iml" />
       <module fileurl="file://$PROJECT_DIR$/SerialMonitor/SerialMonitor.iml" filepath="$PROJECT_DIR$/SerialMonitor/SerialMonitor.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Konto/bank.iml" filepath="$PROJECT_DIR$/Konto/bank.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Bibliothek/bib.iml" filepath="$PROJECT_DIR$/Bibliothek/bib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Kniffel/kniffel.iml" filepath="$PROJECT_DIR$/Kniffel/kniffel.iml" />
       <module fileurl="file://$PROJECT_DIR$/Bibliothek/src/main/main.iml" filepath="$PROJECT_DIR$/Bibliothek/src/main/main.iml" />
       <module fileurl="file://$PROJECT_DIR$/Bibliothek/src/test/test.iml" filepath="$PROJECT_DIR$/Bibliothek/src/test/test.iml" />
     </modules>
