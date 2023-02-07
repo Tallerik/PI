@@ -1,7 +1,7 @@
-package de.hems.tallerik.wetter;
+package de.hems.tallerik.wetter.server;
 
-import de.hems.tallerik.wetter.lib.ServerSocket;
-import de.hems.tallerik.wetter.lib.Socket;
+import de.hems.tallerik.wetter.server.lib.ServerSocket;
+import de.hems.tallerik.wetter.server.lib.Socket;
 
 import java.io.IOException;
 

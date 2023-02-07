@@ -1,4 +1,4 @@
-package de.hems.tallerik.wetter.lib;
+package de.hems.tallerik.wetter.server.lib;
 
 import java.io.IOException;
 import java.io.InputStreamReader;

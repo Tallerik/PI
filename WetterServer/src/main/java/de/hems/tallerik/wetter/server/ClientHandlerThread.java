@@ -1,8 +1,9 @@
-package de.hems.tallerik.wetter;
+package de.hems.tallerik.wetter.server;
 
-import de.hems.tallerik.wetter.lib.Socket;
+import de.hems.tallerik.wetter.server.lib.Socket;
 
 import java.io.IOException;
+import java.net.SocketException;
 
 public class ClientHandlerThread extends Thread {
 
@@ -17,14 +18,23 @@ public class ClientHandlerThread extends Thread {
 
     @Override
     public void run() {
-        while (Main.running) {
+        boolean run = true;
+        while (Main.running && run) {
 
             try {
                 messageRecieved(s.readLine());
+            } catch (SocketException e) {
+                run = false;
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
+        }
+        try {
+            s.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -34,10 +44,10 @@ public class ClientHandlerThread extends Thread {
             case "add":
                 db.add(text.replace("add:", ""));
             case "last":
-                s.write(db.getLast().toEncodedString());
+                s.write(db.getLast().toEncodedString() + "\n");
             case "all":
                 for (DataSet d: db.getAll()) {
-                    s.write(d.toEncodedString());
+                    s.write(d.toEncodedString() + "\n");
                 }
 
         }

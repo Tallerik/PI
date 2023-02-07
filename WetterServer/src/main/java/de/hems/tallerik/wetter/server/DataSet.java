@@ -1,4 +1,4 @@
-package de.hems.tallerik.wetter;
+package de.hems.tallerik.wetter.server;
 
 import java.util.Date;
 
@@ -26,7 +26,7 @@ public class DataSet {
         temp = Double.parseDouble(split[1]);
         luftft = Integer.parseInt(split[2]);
         wind = Integer.parseInt(split[3]);
-        luftft = Integer.parseInt(split[4]);
+        luftdr = Integer.parseInt(split[4]);
         niederschlag = Double.parseDouble(split[5]);
     }
 
@@ -38,5 +38,17 @@ public class DataSet {
                 ":" + wind +
                 ":" + luftdr +
                 ":" + niederschlag;
+    }
+
+    @Override
+    public String toString() {
+        return "DataSet{" +
+                "date=" + date +
+                ", temp=" + temp +
+                ", luftft=" + luftft +
+                ", wind=" + wind +
+                ", luftdr=" + luftdr +
+                ", niederschlag=" + niederschlag +
+                '}';
     }
 }

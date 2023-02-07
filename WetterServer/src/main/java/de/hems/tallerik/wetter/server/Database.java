@@ -1,4 +1,4 @@
-package de.hems.tallerik.wetter;
+package de.hems.tallerik.wetter.server;
 
 import java.util.ArrayList;
 import java.util.List;
