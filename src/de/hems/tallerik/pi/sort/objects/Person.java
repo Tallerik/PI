@@ -23,7 +23,14 @@ public class Person implements Comparable<Person> {
 
     @Override
     public String toString() {
-        return "Person: name='" + name + "' tel='" + tel+"\n";
+        String printname = name;
+        if(name.length() < 20) {
+            int miss = 20 - name.length();
+            for (int i = 0; i < miss; i++) {
+                printname += " ";
+            }
+        }
+        return "Person: name='" + printname + "' tel='" + tel+"\n";
     }
 
     public String getName() {
