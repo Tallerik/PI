@@ -43,8 +43,8 @@ public class Personfaker {
     }
 
 
-    private List<String> readURL(String adress) throws IOException {
-        URL url = new URL(adress);
+    private List<String> readURL(String address) throws IOException {
+        URL url = new URL(address);
         Scanner s = new Scanner(url.openStream());
         List<String> list = new ArrayList<>();
         while (s.hasNext()) {
